@@ -18,7 +18,8 @@ class  App extends React.Component {
       telephone:'',
       email:''
       }],
-      newRegistration: this.newRegInit()
+      newRegistration: this.newRegInit(),
+      inputErrors: []
       
     }
   }
@@ -37,10 +38,11 @@ class  App extends React.Component {
     }
   
 
-  handleUpdate =(newReg) => {
-   let newRegistration  = {...this.state.newRegistration} 
+  handleUpdate =(newReg, errors) => {
+   let newRegistration  = {...this.state.newRegistration};
+   let inputErrors = [...this.state.inputErrors] 
    newRegistration = newReg
-   this.setState({newRegistration})
+   this.setState({newRegistration, inputErrors})
    console.log(this.state.newRegistration)
   }
 
@@ -72,7 +74,7 @@ class  App extends React.Component {
           </Route>
           <Route exact path='/registration' render={({history})=>
 
-            <Registration history={history} newRegistration={this.state.newRegistration} handleUpdate={(reg)=>this.handleUpdate(reg)} handleSubmit={e=>{this.handleSubmit(e)}} newRegInit = { this.state.newRegInit}/>
+            <Registration history={history} errors={this.state.inputErrors} newRegistration={this.state.newRegistration} handleUpdate={(reg)=>this.handleUpdate(reg)} handleSubmit={e=>{this.handleSubmit(e)}} newRegInit = { this.state.newRegInit}/>
           }>
           </Route>
           <Route exact path='/registration-success' render={({history})=>
