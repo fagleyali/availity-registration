@@ -1,80 +1,111 @@
-.App {
+body{
+  margin: 0 auto;
   text-align: center;
+  background-color: #f8f8f8;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-flow: rwo wrap;
+  justify-content: flex-start;
+  padding: 10px 40px;
+  margin: 5px;
+  background-color: #4d4f53;
+  
+  
 }
 
-.App-link {
-  color: #09d3ac;
+.navbar>*{
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 30px;
+}
+
+.navbar>*:hover{
+  color: chartreuse;
+  
+}
+
+.registration-succes-container{
+  font-size: 30px;
 }
 
 .registration-container {
   
   font-weight: bold;
   display: flex;
-  flex-direction: row;
-  width: 50%;
+  flex-direction: column;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 2%;
+  padding: 5px;
+  width: 800px;
  
-  
 }
 
 .label-container {
   display: flex;
   flex-direction: column;
-  
-  
+  width: 60%;
+  margin: 0 auto;
   
 }
 
-.text-container{
-  display: flex;
-  flex-direction: column;
-  flex-grow: 3;
-  
-} 
-
-.registration-container>*{
- flex: 1 auto;
+.label-container>*{
  
-}
-
-label, input {
-  padding: 2%;
   margin: 2px;
-  border: 1px solid blue;
- 
+  border-radius: 5px;
+  text-align: left;
+  
+  flex: 1 auto;
 }
 
-label {
-  border: 1px solid blue;
-  
-}
 
 input {
-  height: 100%;
+  height: 80%;
+  border: 1px solid #4d4f53;
+  padding: 2%;
  
 }
 
 button{
-  padding: 1em;
+  padding: 10px;
   margin: 10px;
-  width: 10%;
+  width: 15%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.success-container{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+}
+
+.success-container>*{
+  padding: 10px;
+  border: 2px solid blue;
+  margin: 2px ;
+}
+
+.success-message1{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 30px;
+}
+
+.success-message2{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 30px;
+}
+
+.logo{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 700;
 }
 
 

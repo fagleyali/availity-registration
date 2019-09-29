@@ -1,6 +1,9 @@
 import React from 'react';
+import {Switch, Route} from 'react-router-dom';
 import Registration from './component/registration/registration';
 import RegistrationSuccess from './component/registration/registration-success';
+import Navbar from './component/nav/nav';
+import Home from './component/home/home';
 import './App.css';
 
 class  App extends React.Component {
@@ -54,12 +57,31 @@ class  App extends React.Component {
         email:''
         }
     }))
+   
+    
   }
   render(){
     return (
       <div className="App">
-        <Registration newRegistration={this.state.newRegistration} handleUpdate={(reg)=>this.handleUpdate(reg)} handleSubmit={e=>{this.handleSubmit(e)}} newRegInit = { this.state.newRegInit}/>
-        <RegistrationSuccess newReg={this.state.registrations[this.state.registrations.length-1]} />
+        <Navbar />
+        <Switch>
+          <Route exact path='/' render = {()=>
+            <Home />
+          }>
+
+          </Route>
+          <Route exact path='/registration' render={({history})=>
+
+            <Registration history={history} newRegistration={this.state.newRegistration} handleUpdate={(reg)=>this.handleUpdate(reg)} handleSubmit={e=>{this.handleSubmit(e)}} newRegInit = { this.state.newRegInit}/>
+          }>
+          </Route>
+          <Route exact path='/registration-success' render={({history})=>
+          
+            <RegistrationSuccess history={history} newReg={this.state.registrations[this.state.registrations.length-1]} />
+          }>
+
+          </Route>
+        </Switch>
       </div>
     );
   }

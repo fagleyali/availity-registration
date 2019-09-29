@@ -8,7 +8,7 @@ const Registration = (props) =>{
     function formSubmit(e){
         e.preventDefault()
         props.handleSubmit(e)
-
+        props.history.push('/registration-success')
        
         
     }
@@ -21,43 +21,44 @@ const Registration = (props) =>{
         
     }
     return (
-        <div>
+        <div >
            <h1>Insurance Provider Registration</h1>
-            <form onSubmit={formSubmit}>
-                <div className='registration-container'>
+            
+            <div >
+                
+                
+                <form onSubmit={formSubmit} className='registration-container'>
+                
                 
                     <div className='label-container'>
                         <label htmlFor='firstName'>First Name</label>
+                        <input type='text' name='firstName' value={props.newRegistration.firstName} onChange={handleChange}  />
                         <label htmlFor='lastName'>Last Name</label>
+                        <input type='text' name='lastName' value={props.newRegistration.lastName}  onChange={handleChange} />
                         <label htmlFor='NPINumber'>NPI Number</label>
+                        <input type='text' name='NPINumber' value={props.newRegistration.NPINumber}  onChange={handleChange} />
                         <label htmlFor='businessAddress'>Business Address</label>
+                        <input type='text' name='businessAddress' value={props.newRegistration.businessAddress} onChange={handleChange} />
                         <label htmlFor='telephone'>Telephone</label>
+                        <input type='text' name='telephone' value={props.newRegistration.telephone}onChange={handleChange}  />
                         <label htmlFor='email'>Email</label>
+                        <input type='text' name='email' value={props.newRegistration.email}onChange={handleChange}  />
                     </div>
 
-                    <div className='text-container'>
-                    <input type='text' name='firstName' value={props.newRegistration.firstName} onChange={handleChange}  />
                     
-                    <input type='text' name='lastName' value={props.newRegistration.lastName}  onChange={handleChange} />
-                    
-                    <input type='text' name='NPINumber' value={props.newRegistration.NPINumber}  onChange={handleChange} />
-                    
-                    <input type='text' name='businessAddress' value={props.newRegistration.businessAddress} onChange={handleChange} />
-                    
-                    <input type='text' name='telephone' value={props.newRegistration.telephone}onChange={handleChange}  />
-                    
-                    <input type='text' name='email' value={props.newRegistration.email}onChange={handleChange}  />
-                    </div>
                     
                 
-                </div>
+               
 
                 <div className='reg-btn'>
-                    <button type='submit'>Submit</button>
-                    <button type='button' onClick={props.newRegInit}>Cancel</button>
+                    <button className='btn-reg' type='submit' >Register</button>
+                    <button className='btn-reg' type='button' onClick={()=>props.history.push('/')}>Home</button>
                 </div>
                 
             </form>
+
+            </div>
+            <footer></footer>
         </div>
     )
 }
