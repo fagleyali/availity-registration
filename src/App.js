@@ -39,9 +39,9 @@ class  App extends React.Component {
   
 
   handleUpdate =(newReg, errors) => {
-   let newRegistration  = {...this.state.newRegistration};
+   let newRegistration  = newReg;
    let inputErrors = [...this.state.inputErrors] 
-   newRegistration = newReg
+  //  newRegistration = newReg
    this.setState({newRegistration, inputErrors})
    console.log(this.state.newRegistration)
   }
@@ -50,14 +50,7 @@ class  App extends React.Component {
     e.preventDefault()
     this.setState(state=>({
       registrations:[...state.registrations,state.newRegistration],
-      newRegistration: {
-        firstName:'',
-        lastName:'',
-        NPINumber: 0,
-        businessAddress:'',
-        telephone:'',
-        email:''
-        }
+      newRegistration: this.newRegInit()
     }))
    
     

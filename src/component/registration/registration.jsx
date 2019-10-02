@@ -8,29 +8,19 @@ const phoneRegEx = "[1-9][0-9][0-9]+-[1-9][0-9][0-9]+-[1-9][0-9][0-9][0-9]"
 const numberRegEx = "[0-9]{3,}";
 
 const Registration = (props) =>{
-    
-    
+
     function formSubmit(e){
         e.preventDefault()
-        
         props.handleSubmit(e)
         props.history.push('/registration-success')
-       
-        
     }
-    
 
     function handleChange (e){
-        
-            
       registration1[e.target.name]= e.target.value;
       console.log(registration1)
       props.handleUpdate(registration1)
-      
-        
     }
 
-    
     return (
         
         <div >
@@ -40,18 +30,13 @@ const Registration = (props) =>{
                 {props.errors?props.errors.map((er,id)=>(
                     
                     <li key={id}>{er}</li>
-                
                 )
                 ):
                 false
 
             }
-    
-                
                 
                 <form onSubmit={formSubmit} className='registration-container'>
-                
-                
                     <div className='label-container'>
                         <label htmlFor='firstName'>First Name</label>
                         <input required type='text' pattern={firstNameRegex} name='firstName' value={props.newRegistration.firstName} onChange={handleChange}  />
@@ -66,11 +51,6 @@ const Registration = (props) =>{
                         <label htmlFor='email'>Email</label>
                         <input required type='text' name='email' pattern={emailRegex} value={props.newRegistration.email}onChange={handleChange}  />
                     </div>
-
-                    
-                    
-                
-               
 
                 <div className='reg-btn'>
                     <button className='btn-reg' type='submit' >Register</button>
